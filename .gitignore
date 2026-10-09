@@ -1,0 +1,19 @@
+﻿# CTFd runtime database and data
+**/.data/
+
+# Sensitive environment files
+.env
+.env.*
+!.env.example
+
+# Python temporary files
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+
+# Temporary files
+*.tmp
+*.bak
