@@ -1,0 +1,27 @@
+2026-08-20 10:20:33 ALERT code=SEC-ALERT-02 severity=LOW source=192.168.1.55 description=Repeated login attempt
+2026-08-20 10:24:47 ALERT code=SEC-ALERT-04 severity=MEDIUM source=192.168.1.60 description=Unusual request rate
+2026-08-20 10:28:55 ALERT code=SEC-ALERT-02 severity=LOW source=192.168.1.55 description=Repeated login attempt
+2026-08-20 10:31:41 ALERT code=SEC-ALERT-03 severity=LOW source=192.168.1.77 description=Expired token rejected
+2026-08-20 10:34:18 ALERT code=SEC-ALERT-04 severity=MEDIUM source=192.168.1.60 description=Unusual request rate
+2026-08-20 10:38:12 ALERT code=SEC-ALERT-05 severity=LOW source=192.168.1.88 description=Invalid resource request
+2026-08-20 10:41:29 ALERT code=SEC-ALERT-02 severity=LOW source=192.168.1.55 description=Repeated login attempt
+2026-08-20 10:43:58 SECURITY_EVENT type=EXTERNAL_CONNECTION source=10.10.10.45 status=ACCEPTED
+2026-08-20 10:44:01 AUTH_WARNING user=admin source=10.10.10.45 result=FAILED
+2026-08-20 10:44:05 AUTH_WARNING user=admin source=10.10.10.45 result=FAILED
+2026-08-20 10:44:10 AUTH_WARNING user=admin source=10.10.10.45 result=FAILED
+2026-08-20 10:45:10 ACCESS_DENIED path=/admin session=CP-4821 source=10.10.10.45
+2026-08-20 10:45:41 DEBUG_ACCESS session=CP-4821 source=10.10.10.45 status=SUCCESS
+2026-08-20 10:45:52 AUTHORIZATION_CHANGE request=RQ-9182 previous=USER current=ADMIN source=10.10.10.45
+2026-08-20 10:46:01 TOKEN_REFRESH session=CP-4821 role=ADMIN source=10.10.10.45
+2026-08-20 10:46:19 ADMIN_ACCESS session=CP-4821 source=10.10.10.45 status=SUCCESS
+2026-08-20 10:46:32 USER_LIST_ACCESS session=CP-4821 source=10.10.10.45 status=SUCCESS
+2026-08-20 10:46:45 USER_RECORD_ACCESS session=CP-4821 user_id=1042 source=10.10.10.45 status=SUCCESS
+2026-08-20 10:47:10 SETTINGS_ACCESS session=CP-4821 source=10.10.10.45 status=SUCCESS
+2026-08-20 10:47:22 SENSITIVE_RESOURCE_ACCESS session=CP-4821 resource=/config/security.conf source=10.10.10.45 status=SUCCESS
+2026-08-20 10:47:30 ALERT code=SEC-ALERT-07 session=CP-4821 severity=HIGH
+2026-08-20 10:47:34 SESSION_ISOLATION session=CP-4821 result=STARTED
+2026-08-20 10:47:41 EVIDENCE_CAPTURE session=CP-4821 result=SUCCESS evidence_id=EV-7F42
+2026-08-20 10:47:45 INCIDENT incident=INC-2041 status=OPEN severity=HIGH
+2026-08-20 10:48:16 NETWORK_BLOCK ip=10.10.10.45 result=SUCCESS
+2026-08-20 10:49:00 INCIDENT incident=INC-2041 evidence_status=CONFIRMED evidence_id=EV-7F42
+2026-08-20 10:49:32 INCIDENT_ARCHIVE incident=INC-2041 result=SUCCESS

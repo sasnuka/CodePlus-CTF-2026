@@ -1,0 +1,30 @@
+services:
+  stage06:
+    build:
+      context: ../challenges/Stage06-linux
+
+    container_name: codeplus-stage06
+
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Colombo
+
+      USER_NAME: ${STAGE06_USER}
+      USER_PASSWORD: ${STAGE06_PASSWORD}
+
+      PASSWORD_ACCESS: "true"
+      SUDO_ACCESS: "false"
+
+    ports:
+      - "2222:2222"
+
+    networks:
+      - codeplus-ctf-net
+
+    restart: unless-stopped
+
+
+networks:
+  codeplus-ctf-net:
+    external: true

@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="codeplus-mission-hero">
+
+  <div class="container text-center">
+
+    <div class="system-label">
+      CODEPLUS SECURITY OPERATIONS
+    </div>
+
+    <h1>
+      MISSION BOARD
+    </h1>
+
+    <p>
+      CAMPUS BREACH // SELECT YOUR NEXT OBJECTIVE
+    </p>
+
+    <div class="hero-line"></div>
+
+  </div>
+
+</section>
+
+
+<div class="container mission-board-container">
+
+  <div
+    x-data="ChallengeBoard"
+    @load-challenges.window="loadChallenges()"
+    @load-challenge.window="loadChallenge($event.detail)"
+  >
+
+    <!-- Challenge popup -->
+    <div
+      x-ref="challengeWindow"
+      id="challenge-window"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      x-data=""
+      x-html="$store.challenge.data.view"
+    ></div>
+
+
+    <!-- Loading -->
+    <div x-show="!loaded">
+
+      <div class="mission-loading">
+
+        <div class="loader-circle"></div>
+
+        <p>
+          ACCESSING CODEPLUS MISSION DATABASE...
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Mission Board -->
+
+    <div x-show="loaded">
+
+      <div class="mission-grid">
+
+        <template
+          x-for="(category, stageIndex) in [
+            'Steganography',
+            'Cryptography',
+            'Web Security',
+            'Digital Forensics',
+            'Networking',
+            'Linux / System Security'
+          ]"
+          :key="category"
+        >
+
+          <template
+            x-for="c in getChallenges(category)"
+            :key="c.id"
+          >
+
+            <button
+
+              type="button"
+
+              class="challenge-button mission-card"
+
+              :class="[
+                c.solved_by_me ? 'challenge-solved' : '',
+                ...c.tags.map(
+                  (tag) =>
+                    `tag-${tag.value.replace(/ /g, '-')}`
+                ),
+              ]"
+
+              :value="c.id"
+
+              @click="loadChallenge(c.id)"
+
+            >
+
+
+              <!-- Top -->
+
+              <div class="mission-card-top">
+
+                <span
+                  class="mission-number"
+                  x-text="
+                    'MISSION ' +
+                    String(stageIndex + 1).padStart(2, '0')
+                  "
+                ></span>
+
+
+                <span
+                  class="mission-state"
+                  :class="
+                    c.solved_by_me
+                    ? 'mission-cleared'
+                    : 'mission-active'
+                  "
+
+                  x-text="
+                    c.solved_by_me
+                    ? 'CLEARED'
+                    : 'AVAILABLE'
+                  "
+                ></span>
+
+              </div>
+
+
+              <!-- Icon -->
+
+              <div
+                class="mission-icon"
+
+                x-text="
+                  [
+                    'IMG',
+                    'B64',
+                    'WEB',
+                    'LOG',
+                    'NET',
+                    'SSH'
+                  ][stageIndex]
+                "
+              ></div>
+
+
+              <!-- Challenge Name -->
+
+              <h3
+                class="mission-title"
+                x-text="c.name"
+              ></h3>
+
+
+              <!-- Category -->
+
+              <div
+                class="mission-domain"
+                x-text="category"
+              ></div>
+
+
+              <!-- Difficulty -->
+
+              <div
+                class="mission-difficulty"
+
+                x-text="
+                  [
+                    'EASY',
+                    'EASY',
+                    'MODERATE',
+                    'MODERATE',
+                    'MODERATE-HARD',
+                    'HARD'
+                  ][stageIndex]
+                "
+              ></div>
+
+
+              <!-- Reward -->
+
+              <div class="mission-reward">
+
+                REWARD
+
+                <strong>
+                  <span x-text="c.value"></span>
+                  PTS
+                </strong>
+
+              </div>
+
+
+            </button>
+
+          </template>
+
+        </template>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+{{ Assets.js("assets/js/challenges.js") }}
+
+{% endblock %}

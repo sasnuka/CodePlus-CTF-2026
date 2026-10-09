@@ -1,0 +1,46 @@
+2026-08-20 10:20:14 GET /index.html 200 session=CP-6121 ip=192.168.1.41
+2026-08-20 10:20:48 GET /dashboard 200 session=CP-6121 ip=192.168.1.41
+2026-08-20 10:21:15 GET /courses 200 session=CP-6122 ip=192.168.1.42
+2026-08-20 10:21:46 GET /courses/it3040 200 session=CP-6122 ip=192.168.1.42
+2026-08-20 10:22:57 GET /login 200 session=CP-6123 ip=192.168.1.43
+2026-08-20 10:23:12 GET /profile 200 session=CP-6123 ip=192.168.1.43
+2026-08-20 10:24:02 GET /documents 200 session=CP-6124 ip=192.168.1.44
+2026-08-20 10:24:31 GET /documents/handbook.pdf 200 session=CP-6124 ip=192.168.1.44
+2026-08-20 10:25:03 GET /notifications 200 session=CP-6125 ip=192.168.1.45
+2026-08-20 10:25:49 GET /logout 200 session=CP-6125 ip=192.168.1.45
+2026-08-20 10:27:18 GET /admin/dashboard 200 session=CP-8001 ip=192.168.1.10
+2026-08-20 10:27:31 GET /admin/users 200 session=CP-8001 ip=192.168.1.10
+2026-08-20 10:27:48 GET /admin/settings 200 session=CP-8001 ip=192.168.1.10
+2026-08-20 10:28:02 GET /logout 200 session=CP-8001 ip=192.168.1.10
+2026-08-20 10:28:41 GET /dashboard 200 session=CP-6126 ip=192.168.1.46
+2026-08-20 10:29:01 GET /debug/status 200 session=CP-8101 ip=192.168.1.15
+2026-08-20 10:29:18 GET /debug/health 200 session=CP-8101 ip=192.168.1.15
+2026-08-20 10:30:03 GET /profile 200 session=CP-6127 ip=192.168.1.47
+2026-08-20 10:31:02 GET /courses 200 session=CP-6128 ip=192.168.1.48
+2026-08-20 10:32:55 GET /dashboard 200 session=CP-6129 ip=192.168.1.49
+2026-08-20 10:33:19 GET /documents 200 session=CP-6130 ip=192.168.1.50
+2026-08-20 10:34:25 GET /profile 200 session=CP-6131 ip=192.168.1.51
+2026-08-20 10:35:37 GET /courses/it3050 200 session=CP-6132 ip=192.168.1.52
+2026-08-20 10:36:19 GET /notifications 200 session=CP-6133 ip=192.168.1.53
+2026-08-20 10:37:44 GET /documents/lecture10.pdf 200 session=CP-6134 ip=192.168.1.54
+2026-08-20 10:38:17 GET /profile 200 session=CP-6135 ip=192.168.1.55
+2026-08-20 10:40:22 GET /dashboard 200 session=CP-1234 ip=192.168.1.20
+2026-08-20 10:41:21 GET /courses 200 session=CP-1235 ip=192.168.1.21
+2026-08-20 10:42:26 GET /documents 200 session=CP-1236 ip=192.168.1.22
+2026-08-20 10:43:19 GET /profile 200 session=CP-4490 ip=192.168.1.23
+2026-08-20 10:44:12 GET /courses 200 session=CP-6140 ip=192.168.1.31
+2026-08-20 10:44:30 POST /login 200 session=CP-4821 ip=10.10.10.45
+2026-08-20 10:45:10 GET /admin 403 session=CP-4821 ip=10.10.10.45
+2026-08-20 10:45:19 GET /courses 200 session=CP-6141 ip=192.168.1.32
+2026-08-20 10:45:41 GET /debug/status 200 session=CP-4821 request=RQ-9182 ip=10.10.10.45
+2026-08-20 10:45:55 GET /health 200 session=CP-6142 ip=192.168.1.33
+2026-08-20 10:46:19 GET /admin/dashboard 200 session=CP-4821 request=RQ-9182 ip=10.10.10.45
+2026-08-20 10:46:27 GET /course/it3060 200 session=CP-6143 ip=192.168.1.34
+2026-08-20 10:46:32 GET /admin/users 200 session=CP-4821 request=RQ-9182 ip=10.10.10.45
+2026-08-20 10:46:45 GET /admin/users/1042 200 session=CP-4821 request=RQ-9182 ip=10.10.10.45
+2026-08-20 10:46:58 GET /profile 200 session=CP-6144 ip=192.168.1.35
+2026-08-20 10:47:10 GET /admin/settings 200 session=CP-4821 request=RQ-9182 ip=10.10.10.45
+2026-08-20 10:47:22 GET /config/security.conf 200 session=CP-4821 request=RQ-9182 ip=10.10.10.45
+2026-08-20 10:47:41 GET /health 200 session=CP-6145 ip=192.168.1.36
+2026-08-20 10:48:02 GET /logout 200 session=CP-4821 ip=10.10.10.45
+2026-08-20 10:48:39 GET /dashboard 200 session=CP-6145 ip=192.168.1.36

@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Admin Panel</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="{{ url_for('views.themes', theme='admin', path='img/favicon.ico') }}" type="image/x-icon">
+	<link rel="icon" href="{{ url_for('views.themes', theme='admin', path='img/favicon.ico') }}" type="image/x-icon">
+	{{ Assets.css("assets/css/main.scss", theme="admin") }}
+	{{ Assets.css("assets/css/fonts.scss", theme="admin") }}
+	{{ Assets.css("assets/css/admin.scss", theme="admin") }}
+	{{ Assets.css("assets/css/codemirror.scss", theme="admin") }}
+	<style>
+
+/* =============================================
+   CODEPLUS CTF 2026 - ADMIN GAMING INTERFACE
+   ============================================= */
+
+:root {
+    --cp-black: #02050a;
+    --cp-black2: #040914;
+    --cp-navy: #061426;
+    --cp-navy2: #081c35;
+    --cp-darkblue: #0b2748;
+    --cp-blue: #0d6efd;
+    --cp-brightblue: #199cff;
+    --cp-cyan: #00d9ff;
+    --cp-white: #eef8ff;
+    --cp-muted: #8aa4bc;
+    --cp-green: #00e89d;
+    --cp-red: #ff416c;
+}
+
+
+/* ==============================
+   PAGE
+   ============================== */
+
+html,
+body {
+    background:
+        radial-gradient(
+            circle at top,
+            #0b294d 0%,
+            #061426 32%,
+            #030914 70%,
+            #010308 100%
+        ) !important;
+
+    background-attachment: fixed !important;
+
+    color: var(--cp-white) !important;
+
+    min-height: 100%;
+}
+
+
+/* ==============================
+   ADMIN NAVBAR
+   ============================== */
+
+.navbar.bg-dark {
+
+    background:
+        linear-gradient(
+            90deg,
+            #010308,
+            #061426,
+            #0a2543,
+            #061426,
+            #010308
+        ) !important;
+
+    border-bottom:
+        1px solid rgba(0, 217, 255, 0.5);
+
+    box-shadow:
+        0 0 25px rgba(0, 217, 255, 0.15);
+}
+
+
+.navbar-brand {
+
+    color: var(--cp-cyan) !important;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 10px rgba(0, 217, 255, 0.7);
+}
+
+
+.navbar .nav-link {
+
+    color: #d8ecff !important;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+
+.navbar .nav-link:hover {
+
+    color: var(--cp-cyan) !important;
+
+    text-shadow:
+        0 0 8px rgba(0, 217, 255, 0.8);
+}
+
+
+/* ==============================
+   MAIN CONTENT
+   ============================== */
+
+main {
+
+    color: var(--cp-white) !important;
+
+}
+
+
+.container,
+.container-fluid {
+
+    color: var(--cp-white);
+
+}
+
+
+/* ==============================
+   HEADINGS
+   ============================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    color: #ffffff !important;
+
+}
+
+
+h1,
+h2 {
+
+    text-shadow:
+        0 0 8px rgba(0, 217, 255, 0.18);
+
+}
+
+
+.section-title {
+
+    color: var(--cp-cyan) !important;
+
+    border-top:
+        1px solid rgba(0, 217, 255, 0.25) !important;
+
+    letter-spacing: 1px;
+}
+
+
+/* ==============================
+   JUMBOTRON / PAGE TITLE
+   ============================== */
+
+.jumbotron {
+
+    background:
+        linear-gradient(
+            135deg,
+            #030914,
+            #061426,
+            #0a2949
+        ) !important;
+
+    color: white !important;
+
+    border-bottom:
+        1px solid rgba(0, 217, 255, 0.35);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.35);
+}
+
+
+/* ==============================
+   CARDS
+   ============================== */
+
+.card {
+
+    background:
+        linear-gradient(
+            145deg,
+            #050d19,
+            #07182c
+        ) !important;
+
+    color: var(--cp-white) !important;
+
+    border:
+        1px solid rgba(25, 156, 255, 0.30) !important;
+
+    border-radius: 10px !important;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.40);
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.card:hover {
+
+    border-color:
+        rgba(0,217,255,.65) !important;
+
+    box-shadow:
+        0 0 15px rgba(0,217,255,.15);
+}
+
+
+.card-header,
+.card-footer {
+
+    background:
+        #07182c !important;
+
+    color:
+        var(--cp-white) !important;
+
+    border-color:
+        rgba(0,217,255,.15) !important;
+}
+
+
+/* ==============================
+   TABLES
+   ============================== */
+
+.table {
+
+    color:
+        #e9f6ff !important;
+
+    background:
+        #050e1a !important;
+
+}
+
+
+.table thead th {
+
+    background:
+        #0a2949 !important;
+
+    color:
+        var(--cp-cyan) !important;
+
+    border-color:
+        #174b70 !important;
+
+    font-weight:
+        700;
+
+}
+
+
+.table td,
+.table th {
+
+    border-color:
+        #12334f !important;
+
+}
+
+
+.table tbody tr {
+
+    background:
+        #061426 !important;
+
+}
+
+
+.table tbody tr:nth-child(even) {
+
+    background:
+        #071a30 !important;
+
+}
+
+
+.table tbody tr:hover {
+
+    background:
+        #0b3155 !important;
+
+}
+
+
+/* Important for scoreboard matrix */
+
+.sticky-cell {
+
+    background:
+        #07182c !important;
+
+    color:
+        #ffffff !important;
+
+}
+
+
+.challenge-col {
+
+    background:
+        #081f38 !important;
+
+}
+
+
+#matrix-scoreboard th,
+#matrix-scoreboard td {
+
+    border-color:
+        #17415f !important;
+
+}
+
+
+/* ==============================
+   INPUTS
+   ============================== */
+
+.form-control,
+input,
+textarea,
+select {
+
+    background:
+        #020812 !important;
+
+    color:
+        #ffffff !important;
+
+    border:
+        1px solid #174f75 !important;
+
+    border-radius:
+        6px !important;
+}
+
+
+.form-control:focus,
+input:focus,
+textarea:focus,
+select:focus {
+
+    background:
+        #030c17 !important;
+
+    color:
+        white !important;
+
+    border-color:
+        var(--cp-cyan) !important;
+
+    box-shadow:
+        0 0 10px rgba(0,217,255,.25) !important;
+}
+
+
+::placeholder {
+
+    color:
+        #71889e !important;
+
+}
+
+
+/* ==============================
+   BUTTONS
+   ============================== */
+
+.btn {
+
+    border-radius:
+        6px !important;
+
+}
+
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            90deg,
+            #075ea4,
+            #008fc9
+        ) !important;
+
+    border:
+        1px solid var(--cp-cyan) !important;
+
+    color:
+        white !important;
+
+}
+
+
+.btn-primary:hover {
+
+    box-shadow:
+        0 0 16px rgba(0,217,255,.45);
+
+}
+
+
+.btn-info {
+
+    background:
+        #0b537a !important;
+
+    border-color:
+        #1595c2 !important;
+
+}
+
+
+.btn-success {
+
+    background:
+        #087357 !important;
+
+    border-color:
+        #00e89d !important;
+
+}
+
+
+.btn-danger {
+
+    background:
+        #7a1831 !important;
+
+    border-color:
+        #ff416c !important;
+
+}
+
+
+.btn-warning {
+
+    background:
+        #8c6600 !important;
+
+    border-color:
+        #ffc107 !important;
+
+}
+
+
+/* ==============================
+   DROPDOWNS
+   ============================== */
+
+.dropdown-menu {
+
+    background:
+        #050d19 !important;
+
+    border:
+        1px solid #174b70 !important;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.65);
+
+}
+
+
+.dropdown-item {
+
+    color:
+        #d9ecff !important;
+
+}
+
+
+.dropdown-item:hover {
+
+    background:
+        #0a2949 !important;
+
+    color:
+        var(--cp-cyan) !important;
+
+}
+
+
+/* ==============================
+   MODALS
+   ============================== */
+
+.modal-content {
+
+    background:
+        linear-gradient(
+            145deg,
+            #030914,
+            #061426,
+            #08213c
+        ) !important;
+
+    color:
+        #ffffff !important;
+
+    border:
+        1px solid rgba(0,217,255,.45) !important;
+
+    border-radius:
+        12px !important;
+
+    box-shadow:
+        0 0 40px rgba(0,0,0,.85);
+}
+
+
+.modal-header,
+.modal-footer {
+
+    border-color:
+        rgba(0,217,255,.20) !important;
+
+}
+
+
+/* ==============================
+   LIST GROUPS
+   ============================== */
+
+.list-group-item {
+
+    background:
+        #061426 !important;
+
+    color:
+        #e9f6ff !important;
+
+    border-color:
+        #123a58 !important;
+
+}
+
+
+.list-group-item:hover {
+
+    background:
+        #0a2949 !important;
+
+}
+
+
+/* ==============================
+   TABS
+   ============================== */
+
+.nav-tabs {
+
+    border-bottom:
+        1px solid #174b70 !important;
+
+}
+
+
+.nav-tabs .nav-link {
+
+    color:
+        #8dabca !important;
+
+}
+
+
+.nav-tabs .nav-link.active {
+
+    background:
+        #07182c !important;
+
+    color:
+        var(--cp-cyan) !important;
+
+    border-color:
+        #1676a8 !important;
+
+}
+
+
+/* ==============================
+   BADGES
+   ============================== */
+
+.badge-primary,
+.badge-info {
+
+    background:
+        #086b9d !important;
+
+}
+
+
+.badge-success {
+
+    background:
+        #087357 !important;
+
+}
+
+
+/* ==============================
+   FILTER PANEL
+   ============================== */
+
+.filter-list {
+
+    background:
+        #050e1a !important;
+
+    color:
+        #ffffff !important;
+
+    border:
+        1px solid #174b70 !important;
+
+}
+
+
+/* ==============================
+   LINKS
+   ============================== */
+
+a {
+
+    color:
+        #35bfff;
+
+}
+
+
+a:hover {
+
+    color:
+        var(--cp-cyan);
+
+}
+
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+.footer {
+
+    background:
+        #01050b !important;
+
+    border-top:
+        1px solid rgba(0,217,255,.18);
+
+}
+
+
+.footer small {
+
+    color:
+        #617f99 !important;
+
+}
+
+
+/* ==============================
+   SCROLLBAR
+   ============================== */
+
+::-webkit-scrollbar {
+
+    width:
+        8px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        #010308;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        #0a4e7a;
+
+    border-radius:
+        10px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #00a4d4;
+
+}
+
+
+/* ==============================
+   TEXT SELECTION
+   ============================== */
+
+::selection {
+
+    background:
+        #007da8;
+
+    color:
+        white;
+
+}
+/* =====================================================
+   CODEPLUS ADMIN - CLEAR STATISTICS DASHBOARD
+   ===================================================== */
+
+
+/* Statistics page overall spacing */
+
+#solves-graph,
+#score-distribution-graph,
+#solve-percentages-graph,
+#keys-pie-graph,
+#categories-pie-graph,
+#points-pie-graph {
+
+    background:
+        linear-gradient(
+            145deg,
+            #dff6ff,
+            #c8eafa
+        ) !important;
+
+    border:
+        1px solid #00bfe7 !important;
+
+    border-radius:
+        16px !important;
+
+    margin:
+        18px 0 !important;
+
+    padding:
+        15px !important;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.45),
+        0 0 15px rgba(0,217,255,.12);
+
+    overflow:
+        hidden;
+}
+
+
+/* Main large graphs */
+
+#solves-graph,
+#score-distribution-graph,
+#solve-percentages-graph {
+
+    min-height:
+        420px !important;
+}
+
+
+/* Bottom donut graphs */
+
+#keys-pie-graph,
+#categories-pie-graph,
+#points-pie-graph {
+
+    min-height:
+        390px !important;
+}
+
+
+/* Space between statistics sections */
+
+#solves-graph + hr,
+#score-distribution-graph + hr,
+#solve-percentages-graph + hr {
+
+    border-color:
+        rgba(0,217,255,.25) !important;
+
+}
+
+
+/* Main statistics headings */
+
+main h1,
+main h2,
+main h3 {
+
+    color:
+        #ffffff !important;
+
+}
+
+
+/* Submission text under first pie */
+
+#keys-pie-graph ~ .text-center h5 {
+
+    color:
+        #ffffff !important;
+
+    font-weight:
+        700 !important;
+}
+
+
+/* Horizontal lines */
+
+main hr {
+
+    border-top:
+        1px solid rgba(0,217,255,.20) !important;
+
+}
+
+
+/* Statistics containers */
+
+main .container,
+main .container-fluid {
+
+    padding-top:
+        15px;
+
+    padding-bottom:
+        15px;
+
+}
+</style>
+	<script type="text/javascript">
+		var init = {
+			'urlRoot': "{{ request.script_root }}",
+			'csrfNonce': "{{ Session.nonce }}",
+			'userMode': "{{ Configs.user_mode }}",
+			'userId': {{ Session.id }},
+			'userName': {{ User.name | tojson }},
+			'userEmail': {{ User.email | tojson }},
+			'teamId': {{ Team.id | tojson }}, 
+			'teamName': {{ Team.name | tojson }},
+			'start': {{ Configs.start | tojson }},
+			'end': {{ Configs.end | tojson }}
+		}
+	</script>
+	{% block stylesheets %} {% endblock %}
+	{% for stylesheet in get_registered_admin_stylesheets() %}
+		{% if stylesheet.startswith('http') %}
+			<link rel="stylesheet" type="text/css" href="{{ stylesheet }}">
+		{% elif request.script_root %}
+			<link rel="stylesheet" type="text/css" href="{{ request.script_root }}/{{ stylesheet }}">
+		{% else %}
+			<link rel="stylesheet" type="text/css" href="{{ stylesheet }}">
+		{% endif %}
+	{% endfor %}
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a href="{{ url_for('views.static_html', route='/') }}" class="navbar-brand">
+                 CODEPLUS // ADMIN
+            </a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars"
+					aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="base-navbars">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('admin.statistics') }}">Statistics</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('admin.notifications') }}">Notifications</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Pages</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="{{ url_for('admin.pages_listing') }}">All Pages</a>
+							<a class="dropdown-item" href="{{ url_for('admin.pages_new') }}">New Page</a>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('admin.users_listing') }}">Users</a></li>
+					{% if get_config('user_mode') == 'teams' %}
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('admin.teams_listing') }}">Teams</a></li>
+					{% endif %}
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('admin.scoreboard_listing') }}">Scoreboard</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('admin.challenges_listing') }}">Challenges</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('admin.modules_listing') }}">Modules</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('admin.audiences_listing') }}">Audiences</a></li>
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+						   aria-haspopup="true" aria-expanded="true">Submissions</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="{{ url_for('admin.submissions_listing') }}">All Submissions</a>
+							<a class="dropdown-item" href="{{ url_for('admin.submissions_listing', submission_type='correct') }}">Correct Submissions</a>
+							<a class="dropdown-item" href="{{ url_for('admin.submissions_listing', submission_type='incorrect') }}">Incorrect Submissions</a>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('admin.config') }}">Config</a></li>
+
+					{% set plugin_menu = get_admin_plugin_menu_bar() %}
+					{% set plugins = get_menubar_plugins() %}
+					{% if plugin_menu or plugins %}
+						<li class="nav-item">
+							<a class="nav-link d-none d-md-block d-lg-block">|</a>
+						</li>
+
+						{% for menu in plugin_menu %}
+							{% if request.script_root %}
+								{% set route = '/' + request.script_root + '/' + menu.route %}
+							{% else %}
+								{% set route = menu.route %}
+							{% endif %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route }}" {% if menu.link_target %}target="{{ menu.link_target }}"{% endif %}>
+									{{ menu.title }}
+								</a>
+							</li>
+						{% endfor %}
+
+						{% if plugins %}
+						<li class="nav-item dropdown">
+							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plugins <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+									{% for plugin in plugins %}
+											<a class="dropdown-item" href="{{ request.script_root }}{{ plugin.route }}">{{ plugin.name }}</a>
+									{% endfor %}
+							</ul>
+						</li>
+						{% endif %}
+					{% endif %}
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-item">
+						<a class="nav-link" href="https://docs.ctfd.io/" target="_blank">
+							<i class="far fa-question-circle"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<main role="main">
+		{% if get_config('version_latest') %}
+		<div class="container-fluid bg-warning text-center py-3">
+			<div class="row">
+				<div class="col-md-12">
+					<a class="btn btn-warning" href="{{ get_config('version_latest') }}">
+						A new CTFd version is available!
+					</a>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+		{% block content %}
+		{% endblock %}
+	</main>
+
+	<footer class="footer pt-2">
+		<div class="container text-center">
+			<a href="https://ctfd.io" class="text-secondary">
+				<small class="text-muted">
+					Powered by CTFd
+				</small>
+			</a>
+			<span>
+				<small class="text-muted"><br> Version {{ get_config('ctf_version') }}</small>
+			</span>
+		</div>
+	</footer>
+
+	{% block entrypoint %}
+		{{ Assets.js("assets/js/pages/main.js", theme="admin") }}
+	{% endblock %}
+
+	{% block scripts %} {% endblock %}
+
+	{% for script in get_registered_admin_scripts() %}
+		{% if script.startswith('http') %}
+			<script defer src="{{ script }}"></script>
+		{% elif request.script_root %}
+			<script defer src="{{ request.script_root }}/{{ script }}"></script>
+		{% else %}
+			<script defer src="{{ script }}"></script>
+		{% endif %}
+	{% endfor %}
+</body>
+
+</html>

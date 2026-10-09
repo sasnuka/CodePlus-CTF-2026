@@ -1,0 +1,9 @@
+Evidence Record
+Incident: INC-2041
+Evidence: confirmed
+Source: 10.10.10.45
+Session: CP-4821
+Artifact format: encoded text
+
+Artifact:
+Q09ERVBMVVN7bG9nc19leHBvc2VfdGhlX2F0dGFja2VyfSAgICAgICAgRm9yIG5leHQgY2hhbGxlbmdlIGxvb2sgZm9yIGEgVENQIHNlcnZpY2UgcnVubmluZyBvbiBhbiB1bnVzdWFsIHBvcnQuIEZvbGxvdyB0aGUgSFRUUCB0cmFmZmljIGFuZCBpbnNwZWN0IHRoZSByZXF1ZXN0IGhlYWRlcnMgY2FyZWZ1bGx5IOKAlCB0aGUgaGlkZGVuIGFuc3dlciBpcyB0aGVyZS4=
